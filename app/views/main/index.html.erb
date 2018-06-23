@@ -1,0 +1,21 @@
+<%=stylesheet_link_tag "main" %>
+<%=javascript_include_tag "main.js" %>
+<%=javascript_include_tag "helpers.js" %>
+<%=javascript_include_tag "application.js" %>
+<%=stylesheet_link_tag "application.css" %>
+<div class="div_catalog_content">
+<table class="catalog_list">
+   <% vk = @page %>
+   <% vk.each do |k| %>
+     <tr>
+        <td class="product_image">
+            <%=link_to((render_file "/assets/#{k.id}/#{k.file}"),url_for(action:'show', controller:'detail',id:k.id), :class=>'tag_link') %>
+        </td>
+        <td class="product_description">
+          <%=product_info k.id %>
+        </td>
+     </tr>
+   <% end %>
+</table>
+<%= will_paginate @page %>
+</div>

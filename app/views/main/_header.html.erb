@@ -1,0 +1,41 @@
+<%= stylesheet_link_tag "application.css" %>
+<%= javascript_include_tag "application.js" %>
+<div id="logo_search">
+<div id="div_logo">
+ <%= image_tag("logo.png", class: "icon")%>
+</div>
+<div id="logo_name">
+  <%= label_tag nil,'ESHOP',id: "store_label" %>
+</div>
+<div id="search_bar">
+  <%= form_tag({controller: 'main', action: 'create'},method: 'post', class: 'search_form') do %>
+     <%= text_field_tag 'search_input',nil, placeholder: 'SEARCH', autocomplete:'off' %>
+     <div id="search_button">
+      <div id="icon_reg">
+        <%=image_tag "search", id: "search_icon" %>
+      </div>
+      <%= button_tag nil, id:"start_search" do %>
+      <% end %>
+     </div>
+  <% end %>
+</div>
+</div>
+<div id="header_nav_bar">
+<div id="nav_bar">
+<div id="nav_bar_home">
+   <%=link_to "HOME", {controller: 'main', action: 'index'}, class: 'link' %>
+</div>
+<div id="nav_bar_about">
+    <%=link_to "ABOUT", {controller: 'main', action: 'about', id:2}, class:'link' %>
+</div>
+<div id="nav_bar_contact">
+    <%=link_to "CONTACT", {controller: 'main', action: 'contact', id:3}, class: 'link' %>
+</div>
+<div id="nav_bar_login">
+    <%=link_to "STAFF",{controller: 'staff', action: 'index'}, class:'link'%>
+</div>
+<div id="nav_bar_insert">
+    <%=link_to "UPLOAD",{controller: 'upload', action: 'new'},class: 'link' %>
+</div>
+</div>
+</div>

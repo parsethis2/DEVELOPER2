@@ -1,0 +1,41 @@
+.helpers_content{
+padding:0px;
+margin:0px;
+}
+.product_section{
+padding:0px;
+margin:0px;
+}
+.product_name_link{
+font-family:arial;
+font-size:16px;
+text-decoration:none;
+margin:0px;
+padding:0px;
+color:#366d87;
+display: inline;
+font-style: normal !important;
+}
+.helper_author{
+color: #555;
+font-family:'arial';
+font-size:14px;
+padding:0px;
+margin-left:0px;
+margin-top:4px;
+margin-bottom:4px;
+height: 100%;
+}
+.helper_price{
+color:#B12704 !important;
+font-size:14px;
+font-weight: 700 !important;
+margin-left:0px;
+margin-bottom:4px;
+margin-top:4px;
+padding:0px;
+font-family:arial;
+}
+.product_name_link:hover{
+color:#ec7f15;
+}

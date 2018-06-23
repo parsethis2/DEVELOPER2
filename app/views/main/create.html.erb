@@ -1,0 +1,55 @@
+<%=stylesheet_link_tag "main" %>
+<%=stylesheet_link_tag "home" %>
+<%=javascript_include_tag "main" %>
+<%=javascript_include_tag "application" %>
+<div class="div_create_content">
+  <div class="div_create_main">
+    <%= content_tag(:ul, :id=>'catalog_list') do %>
+       <% @kkk = @search.results %>
+       <% tk = 1 %>
+       <% @kkk.each do |k| %>
+           <% if (tk%5)==0 %>
+             <%=content_tag(:li,:class=>'catalog_items_end') do %>
+                <div class="div_view_box">
+                    <div class="margin_space">
+                    </div>
+                    <div class="div_item">
+                        <%= link_to((render_file "/assets/#{k.id}/#{k.file}"),url_for(action:'show',controller:'detail',id:k.id),:class=>'tag_link') %>
+                    </div>
+                    <div class="margin_space">
+                    </div>
+                    <div class="div_item_detail">
+                       <%=product_info k.id %>
+                    </div>
+                   <div class="item_to_cart">
+                      <%= button_to "ADD TO CART", url_for(action:'create', controller:'cart',id:k.id),class:'add_cart' %>
+                   </div>
+
+                </div>
+             <% end %>
+             <% else %>
+             <%=content_tag(:li,:class=>'catalog_items') do %>
+                <div class="div_view_box">
+                    <div class="margin_space">
+                    </div>
+                    <div class="div_item">
+                        <%= link_to((render_file "/assets/#{k.id}/#{k.file}"),url_for(action:'show',controller:'detail',id:k.id),:class=>'tag_link') %>
+                    </div>
+                    <div class="margin_space">
+                    </div>
+                    <div class="div_item_detail">
+                       <%=product_info k.id %>
+                    </div>
+                   <div class="item_to_cart">
+                      <%= button_to "ADD TO CART", url_for(action:'create', controller:'cart',id:k.id),class:'add_cart' %>
+                   </div>
+
+                </div>
+             <% end %>
+             <% end %>
+             <% tk = tk + 1 %> 
+       <% end %>
+    <% end %>
+  </div>
+  <%= will_paginate @kkk %>
+</div>

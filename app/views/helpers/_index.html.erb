@@ -1,0 +1,8 @@
+<%= stylesheet_link_tag "helpers" %>
+<div class="helpers_content">
+   <div class="product_section">
+          <%= link_to @title, {action:'show',controller:'detail',id:@id}, class:'product_name_link' %>
+          <p class="helper_author">by: <%=@model%></p>
+          <p class="helper_price"><%=get_currency%><%=@price%></p>
+   </div>
+</div>

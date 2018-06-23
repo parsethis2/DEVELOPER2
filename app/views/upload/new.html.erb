@@ -1,0 +1,15 @@
+<%= stylesheet_link_tag "upload.css" %>
+<%= javascript_include_tag "application.js" %>
+<div id="div_form">
+<%= form_for @product, url:{action: "create"}, html:{class:'upload_form'}  do |k| %>
+    <%= k.file_field  :file1, label:'OK',value:'CHOOSE', class:'upload_file' %>
+    <%= k.text_field  :name, id:'upload_name', placeholder:'File Name...' %>
+    <%= k.text_field  :model, class:'upload_text', placeholder: 'Description...' %>
+    <%= k.text_field  :price, class:'upload_text', placeholder: 'Price...' %>
+    <%= k.file_field :file2, class:'upload_file' %>
+    <%= k.file_field :file3, class:'upload_file' %>
+    <%= k.file_field :file4, class:'upload_file' %>
+    <%= k.file_field :file5, class:'upload_file' %>
+    <%= k.button 'UPLOAD', :onclick => 'start()' %>
+<% end %>
+</div>

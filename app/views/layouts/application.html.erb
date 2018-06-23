@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESHOP</title>
+<%=stylesheet_link_tag "application.css" %>
+<%=favicon_link_tag "logo.png" %>
+<!--link href="test2.css" rel="stylesheet" type="text/css"-->
+</head>
+<div id="div_header">
+        <header id="header1">
+            <%=header%>
+        </header>
+</div>
+<div id="suggestion_area">
+   <ul id="suggestion_list">
+   </ul>
+</div>
+<div id="overlay">
+</div>
+<body>
+  <div id="container">
+      <div id="main_body">
+           <div id="div_info_bar">
+           </div>
+           <div id="div_main_content">
+                <%= yield %>
+           </div>
+           <div id="footer">
+              <%=footer%>
+           </div>
+      </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<%= stylesheet_link_tag 'detail' %>
+<%= stylesheet_link_tag 'main' %>
+<%= javascript_include_tag 'application.js' %>
+<div class='detail_body'>
+   <div class='detail_header_info'>
+   </div>
+   <div class='detail_product'>
+      <div class='detail_main_img'>
+         <%- if File.extname(@name)==".png" || File.extname(@name)==".jpg" %>
+           <%=render_main_png_file "/assets/#{@vk}/#{@name}","inline" %>
+           <%=render_main_video_file "/assets/#{@vk}/#{@name}","none" %>
+         <% else %>
+           <%=render_main_video_file "/assets/#{@vk}/#{@name}","inline" %>
+           <%=render_main_png_file "/assets/#{@vk}/#{@name}","none" %>
+         <% end %>
+        <%=render_video_start "/assets/Start.png" %>
+      </div>
+   <div class='detail_upload'>
+     <ul class='detail_upload_img'>
+        <% @upload.each do |k| %>
+          <li>
+            <%=render_detail_upload "/assets/#{@vk}/#{k.file}",k.file,@vk %> 
+          </li>
+        <% end %>
+     </ul>
+   </div>
+   </div>
+   <div class='detail_description'>
+     <%=detail_product_name @product_name %>
+     <%=detail_product_name @product_model %>
+     <%=detail_product_price @product_price %>
+     <!--div id="add_product_div"-->
+     <!--%=update_item @product_id %-->
+     <!--/div-->
+     <!--div id="add_product_div"-->
+     <!--%=delete_item @product_id %-->
+     <!--/div-->
+     <%=form_for @row, url:{controller:'staff',k_id:@product_id},html:{id:"div_update_item"} do |f| %>
+       <%=f.text_field :name %>
+       <%=f.text_field :model %>
+       <%=f.text_field :price %>
+       <%=f.submit "UPDATE", id:'detail_update'%>
+      <%end %>
+       <%=delete_item @product_id %>
+     </div>
+   </div>
+</div>
+<%= javascript_include_tag 'main.js' %>
