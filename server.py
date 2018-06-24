@@ -4,7 +4,7 @@ import json
 import mysql.connector as connect
 
 async def ok(ws,path):
-    cnx = connect.connect(user='user1', database='dbsys1', host='localhost', password='const1')
+    cnx = connect.connect(user='xxxx', database='xxxx', host='xxxx', password='xxxx')
     cursor = cnx.cursor()
     query = ('select name from products')
     try:
