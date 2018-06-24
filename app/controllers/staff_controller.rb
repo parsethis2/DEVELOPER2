@@ -4,6 +4,8 @@ class StaffController < ApplicationController
   end
   def new
   end
+  def show
+  end
   def create
     vk = params[:k_id]
     @row = Product.find(vk)
@@ -13,9 +15,13 @@ class StaffController < ApplicationController
     @row.name = name
     @row.model = model
     @row.price = price
-    @row.save
+    if @row.valid?
+       @row.save
+       redirect_to action: 'index'
+    else
     #puts "????????????%s"%[vk]
-    redirect_to action: 'index'
+       redirect_to action: 'show', id: vk
+    end
   end
   def update
   end

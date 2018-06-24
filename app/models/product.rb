@@ -3,5 +3,6 @@ class Product < ActiveRecord::Base
   searchable do
     text :name, :stored=>true
     text :model, :stored=>true
-  end  
+  end
+  validates :name, :model, :price, presence: true 
 end

@@ -23,6 +23,9 @@ class UploadController < ApplicationController
      if !vk.nil?
         @product = Product.create(name:name,model:model,price:price,file:file)
      end
+     if !@product.valid?
+        redirect_to action: 'new'
+     end
      #pk.save
 
      tk2 = params[:product][:file2]
@@ -65,6 +68,7 @@ class UploadController < ApplicationController
         vk = Upload.create(product_id:@product.id, file:tk5.original_filename)
         #vk.save
      end
+     
      if vk.save && @product.save
         redirect_to action:'index', controller:'main'
      end
