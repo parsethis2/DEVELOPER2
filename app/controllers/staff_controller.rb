@@ -15,6 +15,7 @@ class StaffController < ApplicationController
     @row.price = price
     @row.save
     #puts "????????????%s"%[vk]
+    redirect_to action: 'index'
   end
   def update
   end

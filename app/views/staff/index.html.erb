@@ -25,7 +25,7 @@
                        <%=product_info k.id %>
                     </div>
                    <div class="item_to_cart">
-                      <%= button_to "DELETE", url_for(action:'destroy', controller:'staff',id:k.id),class:'add_cart' %>
+                      <%= link_to((button_tag "UPDATE", class:'add_cart'),url_for(action:'show',controller:'staff',id:k.id),:class=>'tag_link') %>
                    </div>
 
                 </div>
@@ -44,7 +44,7 @@
                        <%=product_info k.id %>
                     </div>
                    <div class="item_to_cart">
-                      <%= button_to "DELETE", url_for(action:'destroy', controller:'staff',id:k.id),class:'add_cart' %>
+                      <%= link_to((button_tag "UPDATE", class:'add_cart'),url_for(action:'show', controller:'staff',id:k.id),:class=>'tag_link') %>
                    </div>
 
                 </div>
